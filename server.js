@@ -3495,8 +3495,8 @@ const sockets = (() => {
                         (e.x - x) * (e.x - x) + (e.y - y) * (e.y - y) <
                         e.size * e.size
                       ) {
-                        e.invuln = false;
-                        e.define(Class.arenacloser);
+                        e.invuln = false; 
+                        e.define(Class.fallen_ac);
                         count++;
                       }
                     if (count === 0) {
