@@ -5161,7 +5161,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 3500 && ran.dice(1550 - timer)) {
+            if (timer > 200 && ran.dice(50 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -5201,7 +5201,7 @@ var maintainloop = (() => {
     })();
     let spawnCrasher = census => {
         
-        if (ran.chance(1 -  0.5 * census.crasher / room.maxFood / room.nestFoodAmount)) {
+        if (ran.chance(1 -  0.8 * census.crasher / room.maxFood / room.nestFoodAmount)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (ran.dice(50)) ? ran.choose([Class.crasher2, Class.sentryGun, Class.sentrySwarm, Class.sentryTrap, Class.crasher2]) : Class.crasher;
@@ -5212,7 +5212,7 @@ var maintainloop = (() => {
     };
     let spawnCrusher = census => {
         
-        if (ran.chance(1 -  0.5 * census.crasher2 / room.maxFood / room.nestFoodAmount)) {
+        if (ran.chance(1 -  0.9 * census.crasher2 / room.maxFood / room.nestFoodAmount)) {
             let spot, i = 30;
             do { spot = room.randomType('nest'); i--; if (!i) return 0; } while (dirtyCheck(spot, 100));
             let type = (ran.dice(50)) ? ran.choose([Class.crasher2, Class.sentryGun, Class.sentrySwarm, Class.sentryTrap, Class.crasher2]) : Class.crasher2;
@@ -5699,22 +5699,29 @@ if (ArenaClosed !== true) {
                     let proportions = c.FOOD,
                         cens = census,
                         amount = foodAmount;
-                    if (room.isIn('nest', o)) {
-                        proportions = c.FOOD_NEST;
-                        cens = censusNest;
-                        amount = nestFoodAmount;
-                    }
-                    // Upgrade stuff
-                    o.foodCountup += Math.ceil(Math.abs(ran.gauss(0, 10)));
-                    while (o.foodCountup >= (o.foodLevel + 1) * 100) {
-                        o.foodCountup -= (o.foodLevel + 1) * 100;
-                        if (ran.chance(1 - cens[o.foodLevel + 1] / amount / proportions[o.foodLevel + 1])) {
-                            o.define(getFoodClass(o.foodLevel + 1));
+                    if (room.isIn('nest', o)) {   
+                        if (o.foodLevel.toString() in c.FOODPATHS) {
+                            let probabilities = c.FOODPATHS[o.foodLevel.toString()][0][0],
+                                cens = census,
+                                amount = foodAmount;
+                            if (room.isIn('nest', o)) {
+                                probabilities = c.FOODPATHS[o.foodLevel.toString()][1][0],
+                                    cens = censusNest;
+                                amount = nestFoodAmount;
+                            }
+                            // Upgrade stuff
+                            o.foodCountup += Math.ceil(Math.abs(ran.gauss(0, 10)));
+                            while (o.foodCountup >= (o.foodLevel + 1) * 100) {
+                                o.foodCountup -= (o.foodLevel + 1) * 100;
+                                if (ran.chance(1 - cens[o.foodLevel + 1] / amount / probabilities)) {
+                                    o.define(getFoodClass(o.foodLevel, true));
+                                }
+                            }
                         }
                     }
                 }
-            }
-        };
+            };
+        }
     })();
     // Define food and food spawning
     return () => {
