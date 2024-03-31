@@ -5443,9 +5443,7 @@ if (ArenaClosed !== true) {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                       let arrayOfClasses = [Class.spike, Class.overlord, Class.fighter,
-                                        Class.machinegunner, Class.penta, Class.octo, Class.jr_closer,  Class.mach2,
-                                        Class.hybrid, Class.anni, Class.destroy, Class.booster, ]                  
+                       let arrayOfClasses = [Class.basic ]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                  o.define(newClass)
                 
@@ -5463,9 +5461,7 @@ if (ArenaClosed !== true) {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                       let arrayOfClasses = [  Class.overseer, Class.overlord,  Class.fighter, 
-                                        Class.machinegunner, Class.penta, Class.octo, Class.mach2,
-                                        Class.hybrid, Class.anni, Class.destroy, Class.booster, ]                  
+                       let arrayOfClasses = [  Class.basic ]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
               o.define(newClass)
                 
