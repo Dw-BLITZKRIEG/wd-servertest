@@ -2629,8 +2629,9 @@ function closeArena() {
   ArenaClosed();
   
 }
-let Bot = []
-if (Bot < 0)
+
+
+  
 var loops = 0;
 function ArenaClosed() {
   loops++;
@@ -2682,8 +2683,14 @@ function restart3hour() {
     setTimeout(restart3hour, 1000);
   } else {
     sockets.broadcast("Arena Closed: No players can join");
+    
+  console.log("no bots spawning anymore")
+  c.BOTS=0
     ArenaClosed();
     if (room.gameMode === "tdm")
+      
+  console.log("no bots spawning anymore")
+  
       room["acsp"].forEach(loc => {
         spawnarenacloser(
           loc,
@@ -2691,6 +2698,8 @@ function restart3hour() {
           ran.choose(
             [Class.arenaclosed, Class.arenacloser, Class.arenacloser],
             1
+            
+ 
           )
         );
       });
