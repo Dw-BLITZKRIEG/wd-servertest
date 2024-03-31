@@ -2627,8 +2627,10 @@ let arenaclosed = true
 let ACSspawned = 0;
 function closeArena() {
   ArenaClosed();
+  
 }
-
+let Bot = []
+if (Bot < 0)
 var loops = 0;
 function ArenaClosed() {
   loops++;
@@ -5420,10 +5422,6 @@ if (ArenaClosed !== true) {
       
         // Return the spawning function
         let bots = [];
-       if (arenaclosed) {
-         
-         console.log("arena closed, bots not allowed")
-       }
       
         return () => {
             let census = {
