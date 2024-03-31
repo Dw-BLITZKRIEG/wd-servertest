@@ -5420,6 +5420,11 @@ if (ArenaClosed !== true) {
       
         // Return the spawning function
         let bots = [];
+       if (arenaclosed) {
+         
+         console.log("arena closed, bots not allowed")
+       }
+      
         return () => {
             let census = {
                 crasher: 0,
