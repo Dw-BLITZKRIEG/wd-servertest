@@ -2678,18 +2678,16 @@ function threeHourRestart() {
 }
 var loops = 0;
 function restart3hour() {
+  c.BOTS=0
   loops++;
   if (loops < 3600000) {
     setTimeout(restart3hour, 1000);
   } else {
     sockets.broadcast("Arena Closed: No players can join");
     
-  console.log("no bots spawning anymore")
-  c.BOTS=0
     ArenaClosed();
     if (room.gameMode === "tdm")
       
-  console.log("no bots spawning anymore")
   
       room["acsp"].forEach(loc => {
         spawnarenacloser(
@@ -2743,6 +2741,8 @@ function modeclose() {
 }
 var loops = 0;
 function closemode() {
+  c.BOTS=0
+  console.log("bots will no longer spawn ")
   loops++;
   if (loops < 10) {
     setTimeout(closemode, 1000);
@@ -3457,6 +3457,7 @@ const sockets = (() => {
                 {
                     if (socket.key === process.env.SECRET) {
                         sockets.broadcast("Arena Has Been Shut Down By " + player.body.name);
+                        c.BOTS=0
                         closemode();
                     }
                 }
@@ -5409,6 +5410,9 @@ if (ArenaClosed !== true) {
       setTimeout(function(){}, 2000 )
  setTimeout(() => closemode(), 1e3);
       console.log("Arena Closed! Spawing Arena Closers...");
+      
+  console.log("no bots spawning anymore")
+
       setInterval(function() {
         if (loops < 16) {
           let o = new Entity(room.randomType("norm"));
