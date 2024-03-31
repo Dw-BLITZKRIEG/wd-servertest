@@ -5761,7 +5761,7 @@ var speedcheckloop = (() => {
       );
              //if the server becomes too laggy/unstable then close the arena
           
-      if (movetime > 700) {
+      if (movetime > 1700) {
         
         util.error("FAILURE!");
            if (ACSspawned < 10) {
@@ -5770,7 +5770,7 @@ var speedcheckloop = (() => {
         closemode()
         }
       }
-       if (collidetime > 700) {
+       if (collidetime > 1700) {
         util.error("FAILURE!");
           if (ACSspawned < 10) {
         console.log("Restarting Server...");
