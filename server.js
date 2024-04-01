@@ -5182,11 +5182,11 @@ var maintainloop = (() => {
           case 4:
             choice = [[Class.elite_battelship], 1, "a", "nest"];
         break; 
-              case 1:
+              case 5:
             choice = [[Class.elite_splitter], 1, "a", "nest"];
        break; 
           case 6:
-            choice = [[Class.pentagon], 1, "a", "nest"];
+            choice = [[Class.celestial_telarius_ai], 1, "a", "nest"];
        break; 
           case 7:
             setTimeout(() => closemode(), 1e3);
