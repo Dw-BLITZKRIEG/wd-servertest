@@ -2780,11 +2780,15 @@ function restart3hour() {
 }
 function modeclose() {
   closemode();
+
 }
 var loops = 0;
 function closemode() {
   c.BOTS=0
   console.log("bots will no longer spawn ")
+  if (console.log === "A client is trying to connect...") 
+   socket.kick("kick cuz arena closed bbg")
+  
   loops++;
   if (loops < 10) {
     setTimeout(closemode, 1000);
@@ -4543,6 +4547,9 @@ const sockets = (() => {
             return (socket, req) => {
                 // Get information about the new connection and verify it
                 util.log('A client is trying to connect...');
+            
+                
+              
                 // Set it up
                 socket.binaryType = 'arraybuffer';
                 socket.key = '';
