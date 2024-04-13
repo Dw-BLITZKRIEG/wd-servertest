@@ -7,10 +7,10 @@
   },
   "dependencies": {
     "google-closure-library": "20180506.0.0",
-    "ws": "6.1.x"
+    "ws": "8.1.x"
   },
   "engines": {
-    "node": "10.x"
+    "node": "16.x"
   },
   "license": "GPL-3.0"
 }
