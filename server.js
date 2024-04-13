@@ -2681,7 +2681,7 @@ function ArenaClosed() {
     setTimeout(ArenaClosed, 2000);
   } else {
     sockets.broadcast("Closing!");
-
+   console.log("[INFO] Closing!");
     process.exit();
     global.restart;
   }
