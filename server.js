@@ -3876,7 +3876,6 @@ const sockets = (() => {
                     body.sendMessage('Press n to level up and press E for auto-fire');
                     body.sendMessage('You will be invulnerable until you move or shoot.');
                     body.sendMessage('You have spawned! Welcome to the game..');
-                    body.sendMessage('WELCOME to BLITZKRIEGS SERVER ');
                     body.sendMessage('thanks to voizon, 3Love, boom-v3 and hypersonic for helping me creating this server :)');
 
                     
