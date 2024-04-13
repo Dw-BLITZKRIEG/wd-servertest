@@ -5292,7 +5292,7 @@ var maintainloop = (() => {
                 let arrayOfClasses = [Class.boton]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                   o.define(newClass);
-                    o.team = -team;
+                    o.team = -100;
                     o.color = [10, 11, 12, 15][team-1];
             };
             for (let i=1; i<5; i++) {
