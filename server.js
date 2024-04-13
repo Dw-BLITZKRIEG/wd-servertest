@@ -2786,8 +2786,7 @@ var loops = 0;
 function closemode() {
   c.BOTS=0
   console.log("bots will no longer spawn ")
-  if (console.log === "A client is trying to connect...") 
-   socket.kick("kick cuz arena closed bbg")
+
   
   loops++;
   if (loops < 10) {
