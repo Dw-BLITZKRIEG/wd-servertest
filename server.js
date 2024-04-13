@@ -2462,6 +2462,21 @@ this.GoesThroughWalls = false
         };
       }
       }
+         // Check for death
+      if (this.isDead()) {
+      if (this.label == "Basic") {
+        sockets.broadcast("bots turned off"),
+        this.ondeath = () => {
+          setTimeout(() => { 
+            c.BOTS = 0
+            
+          }, 2500);
+        };
+          
+          
+        
+      }
+      }
        if (this.isDead()) {
       if (this.label == "Elite splitter") {
         sockets.broadcast("An Elite splitter has been deafeated..."
