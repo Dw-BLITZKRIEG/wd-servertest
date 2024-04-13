@@ -72,6 +72,10 @@ const room = {
     room.findType('bas3');
     room.findType('bas4');
     room.findType('mos1');
+    room.findType('bot1');
+    room.findType('bot2');
+    room.findType('bot3');
+    room.findType('bot4');
     room.findType('mos2');
     room.findType('mos3');
     room.findType('mos4');
@@ -2464,12 +2468,32 @@ this.GoesThroughWalls = false
       }
          // Check for death
       if (this.isDead()) {
-      if (this.label == "Basic") {
+      if (this.label == "botoff") {
+        sockets.broadcast("bots turned on"),
+        this.ondeath = () => {
+          setTimeout(() => { 
+            c.BOTS = 2
+            let type = Class.boton;
+            
+          }, 2500);
+        };
+          
+          
+        
+      }
+      }
+          // Check for death
+      if (this.isDead()) {
+      if (this.label == "boton") {
         sockets.broadcast("bots turned off"),
         this.ondeath = () => {
           setTimeout(() => { 
             c.BOTS = 0
             
+            let type = Class.botoff;
+            let o = new Entity(this);
+            o.define(type);
+            o.team = -100;
           }, 2500);
         };
           
@@ -5259,6 +5283,17 @@ var maintainloop = (() => {
             };
             for (let i=1; i<5; i++) {
                 room['mos' + i].forEach((loc) => { a(loc, i); }); 
+          
+          } let b = (loc, team) => { 
+                let o = new Entity(loc) 
+                let arrayOfClasses = [Class.boton]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                  o.define(newClass);
+                    o.team = -team;
+                    o.color = [10, 11, 12, 15][team-1];
+            };
+            for (let i=1; i<5; i++) {
+                room['bot' + i].forEach((loc) => { b(loc, i); }); 
           
           }
       let closearenaColor = 12;
