@@ -2466,15 +2466,18 @@ this.GoesThroughWalls = false
         };
       }
       }
-         // Check for death
-      if (this.isDead()) {
+        
+     if (this.isDead()) {
       if (this.label == "botoff") {
         sockets.broadcast("bots turned on"),
         this.ondeath = () => {
           setTimeout(() => { 
             c.BOTS = 2
-            let type = Class.boton;
             
+            let type = Class.boton;
+            let o = new Entity(this);
+            o.define(type);
+            o.team = -101;
           }, 2500);
         };
           
