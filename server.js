@@ -104,6 +104,7 @@ for (let it = 1; it < 10; it++){
             y: ran.irandom(0.5*room.height/room.ygrid) * ran.choose([-1, 1])  + selection.y,
         };
     };
+
     room.gauss = clustering => {
         let output;
         do {
@@ -1652,6 +1653,7 @@ this.GoesThroughWalls = false
             color: '#FFFFFF',
             amount: 0,
         };
+      
         // Objects
         this.skill = new Skill();
         this.health = new HealthType(1, 'static', 0);
@@ -2405,6 +2407,7 @@ this.GoesThroughWalls = false
         // Shield regen and damage
         if (this.shield.max) {
             if (this.damageRecieved !== 0) {
+                 this.color = 12;
                 let shieldDamage = this.shield.getDamage(this.damageRecieved);
                 this.damageRecieved -= shieldDamage;
                 this.shield.amount -= shieldDamage;
@@ -2412,6 +2415,7 @@ this.GoesThroughWalls = false
         }
         // Health damage 
         if (this.damageRecieved !== 0) {
+            this.color = 12;
             let healthDamage = this.health.getDamage(this.damageRecieved);
             this.blend.amount = 1;
             this.health.amount -= healthDamage;
@@ -5636,6 +5640,7 @@ if (ArenaClosed !== true) {
                 }
             }
         };
+
         // Define foodspawners
         class FoodSpawner {
             constructor() {
