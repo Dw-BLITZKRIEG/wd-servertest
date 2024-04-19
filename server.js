@@ -3578,7 +3578,7 @@ const sockets = (() => {
                   // create a new, blank entity at our spot
                   let o = new Entity(spot);
                     // turn it into a crasher and set it's team
-                  o.define(Class.crasher);
+                  o.define(Class.EMKD_3);
                   o.team = 12;
                   // let the player know where it was spawned. (Anyone wondering, JSON.stringify will turn something like {a: 2, b: 3} to a string instead of "[object, Object]")
                   player.body.sendMessage(`Entity spawned at ${JSON.stringify(spot)}`)
