@@ -2713,12 +2713,6 @@ let spawnarenacloser2 = (loc, mode, type) => {
   o.color = [35][-mode];
 };
 
-let spawnarenacloser3 = (loc, mode, type) => {
-  let o = new Entity(loc);
-  o.define(type);
-  o.team = mode || -100;
-  o.color = [35][-mode];
-};
 
 function threeHourRestart() {
   restart3hour();
@@ -2816,7 +2810,7 @@ function closemode() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser2, Class.arenacloser3, Class.arenacloser2],
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
             1
           )
         );
@@ -2827,7 +2821,7 @@ function closemode() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser, Class.arenacloser3, Class.arenacloser],
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
         );
