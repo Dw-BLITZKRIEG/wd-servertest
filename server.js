@@ -2683,9 +2683,7 @@ function closeArena() {
   
 var loops = 0;
 function ArenaClosed() {
-if (console.log === " A client is trying to connect...") {
-sock
-},
+
   loops++;
   if (loops < 31) {
     setTimeout(ArenaClosed, 2000);
