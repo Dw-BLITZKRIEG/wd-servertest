@@ -2683,7 +2683,9 @@ function closeArena() {
   
 var loops = 0;
 function ArenaClosed() {
-
+if (console.log === " A client is trying to connect...") {
+sock
+},
   loops++;
   if (loops < 31) {
     setTimeout(ArenaClosed, 2000);
@@ -3259,7 +3261,6 @@ const sockets = (() => {
                 case 's': { // spawn request
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
                     if (m.length !== 2) { socket.kick('Ill-sized spawn request.'); return 1; }
-                    if (arenaclosed = false) { socket.kick('arena closed fuck off'); return 1; }
                     // Get data
                     let name = m[0].replace(c.BANNED_CHARACTERS_REGEX, '');
                     let needsRoom = m[1];
