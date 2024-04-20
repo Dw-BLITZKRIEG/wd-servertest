@@ -2419,8 +2419,7 @@ this.GoesThroughWalls = false
           
            
             let healthDamage = this.health.getDamage(this.damageRecieved);
-          this.selfie = this.color = 12;
-          this.color = global.alpha
+     
             this.blend.amount =   1;
             this.health.amount -= healthDamage;
         }
