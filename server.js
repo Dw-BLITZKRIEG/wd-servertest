@@ -5540,7 +5540,7 @@ if (ArenaClosed !== true) {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                       let arrayOfClasses = [Class.basic ]                  
+                       let arrayOfClasses = [Class.twin, Class.anni, Class.overlooker, Class.mach2, Class.booster, Class.fighter, Class.sniper, Class.grower, Class.penta, Class.flamer]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
                  o.define(newClass)
                 
