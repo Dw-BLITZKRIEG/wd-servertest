@@ -3309,8 +3309,15 @@ const sockets = (() => {
                 if (message.startsWith("/help")) {
                   player.body.sendMessage(" ");
                   player.body.sendMessage("/km ~ Destroys your tank");
+                  player.body.sendMessage("/Rainbow ~ makes yo ahh rainbow");
                   return 1;
                 }
+                
+                    if (message.startsWith("/Rainbow")) {
+                  player.body.color = 36;
+                  return 1;
+                }
+                // suicide command
                 // suicide command
                 if (message.startsWith("/km")) {
                   {
@@ -3321,16 +3328,7 @@ const sockets = (() => {
                   return player.body.sendMessage(
                     "Invalid command. Run /help for a list of commands."
                   );
- // rainbow lmfao
-                if (message.startsWith("/rainbow")) {
-                  {
-                    player.body.color = 36;
-                    return 1;
-                  }
-                } else
-                  return player.body.sendMessage(
-                    "Invalid command. Run /help for a list of commands."
-                  );
+
               }
               if (util.time() - socket.status.lastChatTime >= 2200) {
                 // Verify it
