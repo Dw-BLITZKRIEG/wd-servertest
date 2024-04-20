@@ -2385,7 +2385,7 @@ this.GoesThroughWalls = false
                 (this.team !== -4 && room.isIn('bas2', loc))
             ) { this.kill(); }
         }
-    }
+    }  
 
     contemplationOfMortality() {
         if (this.invuln) {
