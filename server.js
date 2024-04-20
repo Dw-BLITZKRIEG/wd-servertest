@@ -24,7 +24,7 @@ Array.prototype.remove = index => {
         let r = this[index];
         this[index] = this.pop();
         return r;
-    }
+    } 
 };
 
 // Set up room.
