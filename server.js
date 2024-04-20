@@ -1650,7 +1650,7 @@ this.GoesThroughWalls = false
         this.autoOverride = false;
         this.controllers = [];
         this.blend = {
-            color: '#FFFFFF',
+            color: '#ffffff',
             amount: 0,
         };
       
