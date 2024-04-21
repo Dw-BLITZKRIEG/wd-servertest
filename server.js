@@ -2284,9 +2284,9 @@ this.GoesThroughWalls = false
             this.facing += 0.02 / roomSpeed;
             break;
  case 'spinslowly':
-            this.facing += 0.002 / roomSpeed;
+            this.facing += 0.01 / roomSpeed;
             break;
-            this.facing += 0.002 / roomSpeed;
+            this.facing += 0.01 / roomSpeed;
             break;
  case 'reversespin':
             this.facing += -0.02 / roomSpeed;
