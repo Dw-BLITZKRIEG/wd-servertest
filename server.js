@@ -5500,31 +5500,31 @@ if (ArenaClosed !== true) {
         "Arena Closed: No players can join",
         closearenaColor
       );
-      setTimeout(function(){}, 2000 )
+      setTimeout(function(){}, 5000 )
  setTimeout(() => closemode(), 1e3);
       console.log("Arena Closed! Spawing Arena Closers...");
       
   console.log("no bots spawning anymore")
 
       setInterval(function() {
-        if (loops < 16) {
-          let o = new Entity(room.randomType("norm"));
+        if (loops < 32) {
+          let o = new Entity(room.randomType("acsp"));
           o.define(Class.arenacloser2, Class.arenacloser);//put whatever you want to spawn at the end here
           o.team = -100;
           console.log("Spawned Arena Closers!");
           loops++;
         }
-      }, 3000);
+      }, 5000);
       setTimeout(function() {
         sockets.broadcast("Closing...!", closearenaColor);
         console.log("Closing...");
         setTimeout(function() {
           process.exit();
-        }, 2000);
-      }, 40000);
+        }, 5000);
+      }, 50000);
     }, 5000);
   }
-}, 200);
+}, 55200);
       
         // Return the spawning function
         let bots = [];
