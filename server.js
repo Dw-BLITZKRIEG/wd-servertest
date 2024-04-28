@@ -5572,6 +5572,41 @@ if (ArenaClosed !== true) {
                     
                 }
           
+               if (bots.length < c.BOTS) {
+                    let o = new Entity(room.random());
+                    o.color = 17;
+                    o.define(Class.bot);
+                       let arrayOfClasses = [Class.twin, Class.anni, Class.overlooker, Class.mach2, Class.booster, Class.fighter, Class.sniper, Class.grower, Class.penta, Class.flamer]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                 o.define(newClass)
+                
+                    o.name += ran.chooseBotName();
+                    o.refreshBodyAttributes();
+                                  
+                    o.color = 15;
+                    o.team = -4;
+          
+                    bots.push(o)
+                    
+                }
+
+               if (bots.length < c.BOTS) {
+                    let o = new Entity(room.random());
+                    o.color = 17;
+                    o.define(Class.bot);
+                       let arrayOfClasses = [Class.twin, Class.anni, Class.overlooker, Class.mach2, Class.booster, Class.fighter, Class.sniper, Class.grower, Class.penta, Class.flamer]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                 o.define(newClass)
+                
+                    o.name += ran.chooseBotName();
+                    o.refreshBodyAttributes();
+                                  
+                    o.color = 11;
+                    o.team = -2;
+          
+                    bots.push(o)
+                    
+                }
            if (bots.length < c.BOTS) {
                     let o = new Entity(room.random());
                     o.color = 17;
