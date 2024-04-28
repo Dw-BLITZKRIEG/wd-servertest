@@ -2686,37 +2686,24 @@ this.GoesThroughWalls = false
         return this.health.amount <= 0; 
     }
 }
-let spawnrogue = (loc, type, mode) => {
-  let m = new Entity(loc);
-  m.define(type);
-  m.team = mode || -100;
-  m.color = [35][-mode];
+let spawnrogue = (loc, team) => { 
+                let o = new Entity(loc) 
+                let arrayOfClasses = [Class.testbed]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+                  o.define(newClass);
+                    o.team = -team;
+                    o.color = [10, 11, 12, 15][team-1];
+            };
+            for (let i=1; i<5; i++) {
+                room['acsp'].forEach((loc) => { spawnrogue(loc, i); }); 
+           
+            };
 
- let choose = ran.choose([
-    Class.testbed              
-  ]); // choose the boss 
-  m.define(choose);
-sockets.broadcast("TEST: SomeThingCuzImLazy");
- if (room.gameMode === "tdm")
-      
-  
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenaclosed, Class.arenacloser, Class.arenacloser],
-            1
-            
- 
-          )
-        );
-      });
-};  
+
 function SpawnRogue() {
   spawnrogue();
-  
-}
+};
+
 let arenaclosed = true
 let ACSspawned = 0;
 function closeArena() {
@@ -5290,8 +5277,7 @@ var maintainloop = (() => {
           case 1:
             choice = [[Class.palisade], 1, "castle", "norm"];
 
-            setTimeout(() => SpawnRogue(), 1e3);
-            sockets.broadcast("POP BAM BOOZLE");
+        
             
          break;            
           case 2:
