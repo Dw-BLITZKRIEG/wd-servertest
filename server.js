@@ -2686,12 +2686,32 @@ this.GoesThroughWalls = false
         return this.health.amount <= 0; 
     }
 }
-let spawnarenacloser = (loc, mode, type) => {
-  let o = new Entity(loc);
-  o.define(type);
-  o.define  ran.choose(Class.Celestial_theia);
-  o.team = mode || -100;
-  o.color = [35][-mode];
+let spawnrogue = (loc, type, mode) => {
+  let m = new Entity(loc);
+  m.define(type);
+  m.team = mode || -100;
+  m.color = [35][-mode];
+
+ let choose = ran.choose([
+    Class.testbed              
+  ]); // choose the boss 
+  m.define(choose);
+sockets.broadcast("TEST: SomeThingCuzImLazy");
+ if (room.gameMode === "tdm")
+      
+  
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenaclosed, Class.arenacloser, Class.arenacloser],
+            1
+            
+ 
+          )
+        );
+      });
 };  
 function SpawnRogue() {
   spawnrogue();
@@ -5258,7 +5278,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 2000 && ran.dice(500 - timer)) {
+            if (timer > 20 && ran.dice(50 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -5269,6 +5289,10 @@ var maintainloop = (() => {
             break;
           case 1:
             choice = [[Class.palisade], 1, "castle", "norm"];
+
+            setTimeout(() => SpawnRogue(), 1e3);
+            sockets.broadcast("POP BAM BOOZLE");
+            
          break;            
           case 2:
             choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer], 3, "a", "nest"];
