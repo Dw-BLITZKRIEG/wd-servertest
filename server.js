@@ -5365,7 +5365,7 @@ let k = (loc) => {
   o.define(choose);
   o.team = -100; // Makes it spawn yellow
   o.color = 3; // Makes it yellow
-  o.value = 99999999,
+
   o.DOMLOC = i;
   o.ondeath = () => {
     // Check the killers team for being which team
