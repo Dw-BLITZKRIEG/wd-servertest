@@ -5359,12 +5359,7 @@ ArenaClosed = false;
 let k = (loc) => {
   let o = new Entity(loc);
   let choose = ran.choose([
-    Class.dominator01,
-    Class.dominator02,
-    Class.dominator03,
-    Class.dominator04,
-    Class.dominator04,
-    Class.dominator05              
+    Class.dominator01             
   ]); // choose the dominator
   o.define(choose);
   o.team = -100; // Makes it spawn yellow
