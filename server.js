@@ -2686,23 +2686,7 @@ this.GoesThroughWalls = false
         return this.health.amount <= 0; 
     }
 }
-let spawnrogue = (loc, team) => { 
-                let o = new Entity(loc) 
-                let arrayOfClasses = [Class.testbed]                  
-                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
-                  o.define(newClass);
-                    o.team = -team;
-                    o.color = [10, 11, 12, 15][team-1];
-            };
-            for (let i=1; i<5; i++) {
-                room['acsp'].forEach((loc) => { spawnrogue(loc, i); }); 
-           
-            };
 
-
-function SpawnRogue() {
-  spawnrogue();
-};
 
 let arenaclosed = true
 let ACSspawned = 0;
@@ -5265,7 +5249,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 20 && ran.dice(50 - timer)) {
+            if (timer > 200 && ran.dice(50 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
@@ -5276,8 +5260,7 @@ var maintainloop = (() => {
             break;
           case 1:
             choice = [[Class.palisade], 1, "castle", "norm"];
-
-        
+          
             
          break;            
           case 2:
