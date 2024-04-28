@@ -20,7 +20,7 @@
     ["bot1", "acsp", "norm", "rock", "acsp", "norm", "acsp"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["acsp", "norm", "nest", "nest", "nest", "norm", "acsp"],
-    ["roid", "norm", "nest", "norm", "nest", "norm", "roid"],
+    ["roid", "norm", "nest", "dom1", "nest", "norm", "roid"],
     ["acsp", "norm", "nest", "nest", "nest", "norm", "acsp"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["acsp", "norm", "acsp", "roid", "acsp", "norm", "norm"]

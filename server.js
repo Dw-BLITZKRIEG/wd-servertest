@@ -1471,7 +1471,7 @@ var bringToLife = (() => {
     };
     return my => {
         // Size
-        if (my.SIZE - my.coreSize) my.coreSize += (my.SIZE - my.coreSize) / 100;
+    if (my.SIZE - my.coreSize) my.coreSize += my.SnapSize ? (my.SIZE - my.coreSize) : (my.SIZE - my.coreSize) / 100;
         // Think 
         let faucet = (my.settings.independent || my.source == null || my.source === my) ? {} : my.source.control;
         let b = {
@@ -1782,8 +1782,7 @@ this.GoesThroughWalls = false
     }
     if (set.SHOWPOISON != null) {
       this.showpoison = set.SHOWPOISON;
-
-        }
+    }
         if (set.MOTION_TYPE != null) { 
             this.motionType = set.MOTION_TYPE; 
         }
@@ -1818,6 +1817,11 @@ this.GoesThroughWalls = false
     	}
         if (set.HITS_OWN_TYPE != null) { 
             this.settings.hitsOwnType = set.HITS_OWN_TYPE; 
+        }
+
+     if (set.SNAPSIZE != null) {
+            this.SnapSize = set.SNAPSIZE;
+        
         }
         if (set.DIE_AT_LOW_SPEED != null) { 
             this.settings.diesAtLowSpeed = set.DIE_AT_LOW_SPEED; 
