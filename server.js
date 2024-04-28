@@ -5365,7 +5365,7 @@ let k = (loc) => {
   o.define(choose);
   o.team = -100; // Makes it spawn yellow
   o.color = 3; // Makes it yellow
-  o.SIZE = 100;
+  o.value = 99999999,
   o.DOMLOC = i;
   o.ondeath = () => {
     // Check the killers team for being which team
@@ -5379,7 +5379,7 @@ let k = (loc) => {
     n.define(choose);
     let team = pwned ? (pwned = pwned) : (pwned = 0);
     n.team = team || -100;
-    n.SIZE = 100;
+    
     if (pwned >= -4 || pwned <= -1) {
       if (pwned == -1) {
         sockets.broadcast(
@@ -5435,7 +5435,7 @@ let k = (loc) => {
       // if I have controlled, when I die make me be yellow (contested)
       let i = new Entity(loc);
       i.define(choose);
-      i.SIZE = 64;
+      
       i.DOMLOC = o.DOMLOC;
       if (pwned >= -4 || pwned <= -1) {
         if (pwned == -1) {
