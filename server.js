@@ -2686,6 +2686,17 @@ this.GoesThroughWalls = false
         return this.health.amount <= 0; 
     }
 }
+let spawnarenacloser = (loc, mode, type) => {
+  let o = new Entity(loc);
+  o.define(type);
+  o.define  ran.choose(Class.Celestial_theia);
+  o.team = mode || -100;
+  o.color = [35][-mode];
+};  
+function SpawnRogue() {
+  spawnrogue();
+  
+}
 let arenaclosed = true
 let ACSspawned = 0;
 function closeArena() {
