@@ -5362,7 +5362,9 @@ let k = (loc) => {
     Class.dominator01,
     Class.dominator02,
     Class.dominator03,
-    Class.dominator04,             
+    Class.dominator04,
+    Class.dominator04,
+    Class.dominator05              
   ]); // choose the dominator
   o.define(choose);
   o.team = -100; // Makes it spawn yellow
