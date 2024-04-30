@@ -3491,6 +3491,7 @@ const sockets = (() => {
                     } }
                 } break; case '0': { // testbed cheat
                     if (m.length !== 0) { socket.kick('Ill-sized testbed request.'); return 1; }
+
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
 
@@ -3512,7 +3513,7 @@ const sockets = (() => {
                     // cheatingbois
                     if (player.body != null) { if (socket.key === process.env.SECRET3) {
                         player.body.sendMessage('hello Senior Tester!!');
-                        player.body.define(Class.st);
+                         player.body.define(Class.bta);
                     } }
                 } break;
                 case 'A': { // level up cheat
@@ -3524,9 +3525,11 @@ const sockets = (() => {
                         player.body.refreshBodyAttributes();
                     } }
                 } break;
+// here are the cheats, make sure that these ONLY can be activated by staff
                     case "CLOSEARENA":
                 //calls on an arena close function for if you get tired of playing
-                {
+                
+                    {
                     if (socket.key === process.env.SECRET) {
                         sockets.broadcast("Arena Has Been Shut Down By " + player.body.name);
                         c.BOTS=0
@@ -3565,6 +3568,19 @@ const sockets = (() => {
                   player.body.hiddenFromMinimap = true;
                   player.body.x += player.target.x;
                   player.body.y += player.target.y;
+             }
+                  break;
+case 'boss': // make yo ass a random boss
+             if (socket.key === process.env.SECRET) {
+          player.body.define(Class.choose);
+ let choose = ran.choose([
+    Class.dominator01,
+    Class.dominator02,
+    Class.dominator03,
+    Class.dominator04,
+    Class.dominator04,
+    Class.dominator05              
+  ]); // choose the dominator
              }
                   break;
                     
