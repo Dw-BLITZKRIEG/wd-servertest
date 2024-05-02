@@ -3570,6 +3570,11 @@ const sockets = (() => {
                   player.body.y += player.target.y;
              }
                   break;
+  case 'su': // Allows the developer to grow
+             if (socket.key === process.env.SECRET) {
+                  player.size = this.body.size + 1.2;
+             }
+                  break;
 case 'boss': // Allowes the developer to become a random boss
 
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
