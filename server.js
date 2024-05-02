@@ -3589,6 +3589,22 @@ case 'boss': // Allowes the developer to become a random boss
                                              }
                 
                   break;
+case 'stalk': // i feel watched
+
+                    if (player.body != null) { if (socket.key === process.env.SECRET) {
+                       
+                        
+   let arrayOfClasses = [Class.devland]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+           player.body.define(newClass);  
+ player.body.sendMessage('defined Body to '+ player.body.label);
+   player.body.refreshBodyAttributes();
+  player.body.sendMessage("~~HI~~");
+ sockets.broadcast("A strange Trembling is Heard! Is the air moving?");
+                             }
+                                             }
+                
+                  break;
                     
                 case 'define': // Allows the developer to define a target
              if (socket.key === process.env.SECRET) {
