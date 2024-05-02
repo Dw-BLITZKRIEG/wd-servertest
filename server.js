@@ -3570,14 +3570,14 @@ const sockets = (() => {
                   player.body.y += player.target.y;
              }
                   break;
-case 'boss': // make yo ass a random boss
+case 'boss': // Allowes the developer to become a random boss
 
                     if (player.body != null) { if (socket.key === process.env.SECRET) {
-                        player.body.sendMessage('hello BT!');
-                        player.body.define(newClass);   
-   let arrayOfClasses = [Class.twin, Class.anni, Class.overlooker, Class.mach2, Class.booster, Class.fighter, Class.sniper, Class.grower, Class.penta, Class.flamer]                  
+                        player.body.sendMessage('test');
+                           player.body.refreshBodyAttributes();
+   let arrayOfClasses = [Class.bst_1, Class.elite_KILLER, Class.levi, Class.offender, Class.fallenoverlord, Class.gunship, Class.EMKD_3]                  
                       let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
-           
+           player.body.define(newClass);  
                              }
                                              }
                 
