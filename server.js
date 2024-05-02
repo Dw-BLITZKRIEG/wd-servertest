@@ -3572,7 +3572,7 @@ const sockets = (() => {
                   break;
   case 'su': // Allows the developer to become invl
              if (socket.key === process.env.SECRET) {
-             player.body.invuln = true;
+        player.body.sendMessage("Global Fps " + global.fps)
              }
                   break;
 case 'boss': // Allowes the developer to become a random boss
