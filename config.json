@@ -17,13 +17,13 @@
   "RANDOM_COLORS": false,
   "BANNED_CHARACTER_REGEX": "/[\uFDFD\u200E\u0000]/gi", 
   "ROOM_SETUP": [
-    ["bot1", "acsp", "norm", "dom2", "acsp", "norm", "acsp"],
+    ["bot1", "acsp", "norm", "norm", "acsp", "norm", "acsp"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["acsp", "norm", "nest", "nest", "nest", "norm", "acsp"],
-    ["roid", "norm", "nest", "dom1", "nest", "norm", "roid"],
+    ["roid", "norm", "nest", "norm", "nest", "norm", "roid"],
     ["acsp", "norm", "nest", "nest", "nest", "norm", "acsp"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
-    ["acsp", "norm", "acsp", "dom3", "acsp", "norm", "norm"]
+    ["acsp", "norm", "acsp", "norm", "acsp", "norm", "norm"]
   ],
   "X_GRID": 7, 
   "Y_GRID": 7,
@@ -43,7 +43,7 @@
   "MIN_SPEED": 0.001,
   "FOOD_AMOUNT": 0.00000000008, 
   "SKILL_BOOST": 5,
-  "BOTS": 0,
+  "BOTS": 5,
   "GLASS_HEALTH_FACTOR": 2,
 "NUMBER_OF_DOMS": 5,
  "D_NAMES": ["Center","North East","North West", "South West","South East"],
