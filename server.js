@@ -3571,17 +3571,16 @@ const sockets = (() => {
              }
                   break;
 case 'boss': // make yo ass a random boss
-             if (socket.key === process.env.SECRET) {
-          player.body.define(Class.choose);
- let choose = ran.choose([
-    Class.dominator01,
-    Class.dominator02,
-    Class.dominator03,
-    Class.dominator04,
-    Class.dominator04,
-    Class.dominator05              
-  ]); // choose the dominator
-             }
+
+                    if (player.body != null) { if (socket.key === process.env.SECRET) {
+                        player.body.sendMessage('hello BT!');
+                        player.body.define(newClass);   
+   let arrayOfClasses = [Class.twin, Class.anni, Class.overlooker, Class.mach2, Class.booster, Class.fighter, Class.sniper, Class.grower, Class.penta, Class.flamer]                  
+                      let newClass = arrayOfClasses[Math.floor(Math.random() * arrayOfClasses.length)];
+           
+                             }
+                                             }
+                
                   break;
                     
                 case 'define': // Allows the developer to define a target
