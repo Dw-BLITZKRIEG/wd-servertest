@@ -3185,9 +3185,9 @@ const sockets = (() => {
     const protocol = require('./lib/fasttalk');
     let clients = [], players = [];
     return {
-        broadcast: message => {
-            clients.forEach(socket => {
-                socket.talk('m', message);
+        broadcast(message, color = ""){
+            ((socket) => {
+                socket.talk("m", message, color);
             });
         },
         connect: (() => {
@@ -4619,7 +4619,9 @@ case 'stalk': // i feel watched
                       util.remove(subscribers, i)
                   },
                 }
-            })()
+           
+
+ })()
             // Build the returned function
             // This function initalizes the socket upon connection
             return (socket, req) => {
