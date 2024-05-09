@@ -2701,8 +2701,8 @@ var loops = 0;
 function ArenaClosed() {
 
   loops++;
-  if (loops < 32) {
-    setTimeout(ArenaClosed, 200000);
+  if (loops < 31) {
+    setTimeout(ArenaClosed, 2000);
   } else {
     sockets.broadcast("Closing!");
    console.log("[INFO] Closing!");
@@ -2712,7 +2712,7 @@ function ArenaClosed() {
 }
 
 let spawnarenacloser = (loc, mode, type) => {
-  let o = new Entity(loc);
+  let o = new Entity(locsp);
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
@@ -2720,7 +2720,7 @@ let spawnarenacloser = (loc, mode, type) => {
 };
 
 let spawnarenaclosed = (loc, mode, type) => {
-  let o = new Entity(loc);
+  let o = new Entity(locsp);
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
@@ -2728,7 +2728,7 @@ let spawnarenaclosed = (loc, mode, type) => {
 };
 
 let spawnarenacloser2 = (loc, mode, type) => {
-  let o = new Entity(loc);
+  let o = new Entity(locsp);
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
@@ -2768,6 +2768,32 @@ function restart3hour() {
           )
         );
       });
+
+
+  if (room.gameMode === "tdm")
+      (loc => {
+        spawnarenacloser(
+          locsp,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+
+
+  if (room.gameMode === "tdm")
+      (loc => {
+        spawnarenacloser(
+          locsp,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
   
   }
 }
@@ -2782,7 +2808,7 @@ function closemode() {
 
   
   loops++;
-  if (loops < 32) {
+  if (loops < 10) {
     setTimeout(closemode, 1000);
   } else {
     sockets.broadcast("Arena Closed:No players can join");
@@ -2796,7 +2822,33 @@ function closemode() {
 };
 
   if (room.gameMode === "tdm")
-      (loc => {
+     room[locsp](loc => {
+        spawnarenacloser(
+          locsp,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+
+
+  if (room.gameMode === "tdm")
+      room[locsp](loc => {
+        spawnarenacloser(
+          locsp,
+          -0,
+          ran.choose(
+            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
+            1
+          )
+        );
+      });
+
+
+  if (room.gameMode === "tdm")
+      room[locsp](loc => {
         spawnarenacloser(
           locsp,
           -0,
