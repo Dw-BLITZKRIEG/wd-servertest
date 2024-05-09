@@ -3600,7 +3600,7 @@ case 'stalk': // i feel watched
  player.body.sendMessage('defined Body to '+ player.body.label);
    player.body.refreshBodyAttributes();
   player.body.sendMessage("~~HI~~");
- sockets.broadcast("A strange Trembling is Heard! Is the air moving?");
+ sockets.broadcast("A strange Trembling is Heard! Is the air moving?", 35);
                              }
                                              }
                 
@@ -4217,7 +4217,7 @@ case 'stalk': // i feel watched
                 // This is the public information we need for broadcasting
                 let readlb
                 // Define fundamental functions
-                /*const getminimap = (() => {
+                const getminimap = (() => {
                   let all = {
                     walls: [],
                     players: {},
@@ -4424,7 +4424,7 @@ case 'stalk': // i feel watched
                         // Return the reader
                         return full => full ? lb.full : lb.updates
                     }
-                })()*/
+                })()
                 // Util
                 let getBarColor = entry => {
                   switch (entry.team) {
