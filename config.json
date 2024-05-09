@@ -20,7 +20,7 @@
     ["bot1", "acsp", "norm", "norm", "acsp", "norm", "acsp"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["acsp", "norm", "nest", "nest", "nest", "norm", "acsp"],
-    ["roid", "norm", "nest", "norm", "nest", "norm", "roid"],
+    ["roid", "norm", "nest", "dom1", "nest", "norm", "roid"],
     ["acsp", "norm", "nest", "nest", "nest", "norm", "acsp"],
     ["norm", "norm", "norm", "norm", "norm", "norm", "norm"],
     ["acsp", "norm", "acsp", "norm", "acsp", "norm", "norm"]
@@ -45,7 +45,7 @@
   "SKILL_BOOST": 5,
   "BOTS": 5,
   "GLASS_HEALTH_FACTOR": 2,
-"NUMBER_OF_DOMS": 5,
+"NUMBER_OF_DOMS": 1,
  "D_NAMES": ["Center","North East","North West", "South West","South East"],
 
 "FOODPATHS": {"0": [[0.75,0,"egg"], [3,"square"], [1,"greensquare"]], "1": [[0.22,0,"square"], [3,"triangle"], [1,"greentriangle"]], 
