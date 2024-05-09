@@ -2716,6 +2716,13 @@ let spawnarenacloser = (loc, mode, type) => {
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
+
+    for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        });
 };
 
 let spawnarenaclosed = (loc, mode, type) => {
@@ -2723,6 +2730,13 @@ let spawnarenaclosed = (loc, mode, type) => {
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
+
+    for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        });
 };
 
 let spawnarenacloser2 = (loc, mode, type) => {
@@ -2749,7 +2763,14 @@ function restart3hour() {
     if (room.gameMode === "tdm")
       
   
-      room["acsp"].forEach(loc => {
+    
+    for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        })
+room.forEach(loc => {
         spawnarenacloser(
           loc,
           -0,
