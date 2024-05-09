@@ -2710,15 +2710,8 @@ function ArenaClosed() {
     global.restart;
   }
 }
-    for (let i = 0; i < 15; i++) {
-        let angle = ((Math.PI * 2) / 15) * i;
-        let o = new Entity({
-            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
-            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
-        });
-    };
 let spawnarenacloser = (loc, mode, type) => {
- for (let i = 0; i < 15; i++) {
+ for (let i = 0; i < 5; i++) {
         let angle = ((Math.PI * 2) / 15) * i;
         let o = new Entity({
             x: room.width / 1.2 + (room.width / 1) * Math.cos(angle),
@@ -2732,7 +2725,7 @@ let spawnarenacloser = (loc, mode, type) => {
 };
 
 let spawnarenaclosed = (loc, mode, type) => {
- for (let i = 0; i < 15; i++) {
+ for (let i = 0; i < 5; i++) {
         let angle = ((Math.PI * 2) / 15) * i;
         let o = new Entity({
             x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
@@ -2746,11 +2739,11 @@ let spawnarenaclosed = (loc, mode, type) => {
 };
 
 let spawnarenacloser2 = (loc, mode, type) => {
- for (let i = 0; i < 15; i++) {
+ for (let i = 0; i < 5; i++) {
         let angle = ((Math.PI * 2) / 15) * i;
         let o = new Entity({
-            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
-            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+            x: room.width / 2 + (room.width / 1.2) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.2) * Math.sin(angle),
         });
 
   o.define(type);
@@ -2775,12 +2768,6 @@ function restart3hour() {
     ArenaClosed();
       
   
-        let angle = ((Math.PI * 2) / 15) * 2;
-  let locsp = {
-
-        x: room.width * 2 + (room.width / 1.5) * Math.cos(angle),
-       y: room.width * 2 + (room.width / 1.5) * Math.sin(angle),
-};
       if (room.gameMode === "tdm")
       room["acsp"].forEach(loc => {
         spawnarenacloser(
@@ -2788,39 +2775,6 @@ function restart3hour() {
           -0,
           ran.choose(
             [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
         );
@@ -2845,13 +2799,6 @@ function closemode() {
     sockets.broadcast("Arena Closed:No players can join");
     ArenaClosed();
 
-        let angle = ((Math.PI * 2) / 15) * 1;
-  let locsp = {
-
-        x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
-       y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
-};
-
     if (room.gameMode === "tdm")
       room["acsp"].forEach(loc => {
         spawnarenacloser(
@@ -2859,39 +2806,6 @@ function closemode() {
           -0,
           ran.choose(
             [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-    if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
-        spawnarenacloser(
-          loc,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
             1
           )
         );
