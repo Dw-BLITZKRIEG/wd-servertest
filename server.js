@@ -2711,7 +2711,7 @@ function ArenaClosed() {
   }
 }
 let spawnarenacloser = (loc, mode, type) => {
- for (let i = 0; i < 5; i++) {
+ for (let i = 0; i < 8; i++) {
         let angle = ((Math.PI * 2) / 8) * i;
         let o = new Entity({
             x: room.width / 1.2 + (room.width / 1) * Math.cos(angle),
@@ -2725,7 +2725,7 @@ let spawnarenacloser = (loc, mode, type) => {
 };
 
 let spawnarenaclosed = (loc, mode, type) => {
- for (let i = 0; i < 5; i++) {
+ for (let i = 0; i < 8; i++) {
         let angle = ((Math.PI * 2) / 8) * i;
         let o = new Entity({
             x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
@@ -2739,7 +2739,7 @@ let spawnarenaclosed = (loc, mode, type) => {
 };
 
 let spawnarenacloser2 = (loc, mode, type) => {
- for (let i = 0; i < 5; i++) {
+ for (let i = 0; i < 8; i++) {
         let angle = ((Math.PI * 2) / 8) * i;
         let o = new Entity({
             x: room.width / 2 + (room.width / 1.2) * Math.cos(angle),
