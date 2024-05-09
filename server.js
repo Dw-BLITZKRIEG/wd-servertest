@@ -2701,8 +2701,8 @@ var loops = 0;
 function ArenaClosed() {
 
   loops++;
-  if (loops < 16) {
-    setTimeout(ArenaClosed, 2000);
+  if (loops < 32) {
+    setTimeout(ArenaClosed, 200000);
   } else {
     sockets.broadcast("Closing!");
    console.log("[INFO] Closing!");
@@ -2713,7 +2713,7 @@ function ArenaClosed() {
 
 let spawnarenacloser = (loc, mode, type) => {
   let o = new Entity(loc);
-  o.define(Class.arenacloser);
+  o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
 
@@ -2721,7 +2721,7 @@ let spawnarenacloser = (loc, mode, type) => {
 
 let spawnarenaclosed = (loc, mode, type) => {
   let o = new Entity(loc);
-  o.define(Class.arenacloser);
+  o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
 
@@ -2729,7 +2729,7 @@ let spawnarenaclosed = (loc, mode, type) => {
 
 let spawnarenacloser2 = (loc, mode, type) => {
   let o = new Entity(loc);
-  o.define(Class.arenacloser);
+  o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
 
@@ -2782,17 +2782,17 @@ function closemode() {
 
   
   loops++;
-  if (loops < 10) {
+  if (loops < 32) {
     setTimeout(closemode, 1000);
   } else {
     sockets.broadcast("Arena Closed:No players can join");
     ArenaClosed();
 
-        let angle = ((Math.PI * 2) / 15) * 2;
+        let angle = ((Math.PI * 2) / 15) * 1;
   let locsp = {
 
-        x: room.width * 2 + (room.width / 1.5) * Math.cos(angle),
-       y: room.width * 2 + (room.width / 1.5) * Math.sin(angle),
+        x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+       y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
 };
 
   if (room.gameMode === "tdm")
@@ -5521,7 +5521,7 @@ if (ArenaClosed !== true) {
         console.log("Closing...");
         setTimeout(function() {
           process.exit();
-        }, 5000);
+        }, 50000);
       }, 50000);
     }, 5000);
   }
