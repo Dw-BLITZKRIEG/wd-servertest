@@ -2710,29 +2710,53 @@ function ArenaClosed() {
     global.restart;
   }
 }
-
+    for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        });
+    };
 let spawnarenacloser = (loc, mode, type) => {
-  let o = new Entity(locsp);
+ for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        });
+ 
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
-
+ };
 };
 
 let spawnarenaclosed = (loc, mode, type) => {
-  let o = new Entity(locsp);
+ for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        });
+ 
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
-
+ };
 };
 
 let spawnarenacloser2 = (loc, mode, type) => {
-  let o = new Entity(locsp);
+ for (let i = 0; i < 15; i++) {
+        let angle = ((Math.PI * 2) / 15) * i;
+        let o = new Entity({
+            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
+            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        });
+
   o.define(type);
   o.team = mode || -100;
   o.color = [35][-mode];
-
+ };
 };
 
 
@@ -2822,7 +2846,7 @@ function closemode() {
 };
 
   if (room.gameMode === "tdm")
-     room[locsp](loc => {
+     (loc => {
         spawnarenacloser(
           locsp,
           -0,
@@ -2835,7 +2859,7 @@ function closemode() {
 
 
   if (room.gameMode === "tdm")
-      room[locsp](loc => {
+      (loc => {
         spawnarenacloser(
           locsp,
           -0,
@@ -2848,7 +2872,7 @@ function closemode() {
 
 
   if (room.gameMode === "tdm")
-      room[locsp](loc => {
+     (loc => {
         spawnarenacloser(
           locsp,
           -0,
