@@ -2751,10 +2751,16 @@ function restart3hour() {
     ArenaClosed();
       
   
+        let angle = ((Math.PI * 2) / 15) * 2;
+  let locsp = {
+
+        x: room.width * 2 + (room.width / 1.5) * Math.cos(angle),
+       y: room.width * 2 + (room.width / 1.5) * Math.sin(angle),
+};
     if (room.gameMode === "tdm")
-      room["acsp"].forEach(loc => {
+      (loc => {
         spawnarenacloser(
-          loc,
+          locsp,
           -0,
           ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
@@ -2783,16 +2789,16 @@ function closemode() {
     ArenaClosed();
 
         let angle = ((Math.PI * 2) / 15) * 2;
-  let loc = {
+  let locsp = {
 
-        x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
-       y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+        x: room.width * 2 + (room.width / 1.5) * Math.cos(angle),
+       y: room.width * 2 + (room.width / 1.5) * Math.sin(angle),
 };
 
   if (room.gameMode === "tdm")
-      room.forEach(loc => {
+      (loc => {
         spawnarenacloser(
-          loc,
+          locsp,
           -0,
           ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
