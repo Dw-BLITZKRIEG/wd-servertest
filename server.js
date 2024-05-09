@@ -2721,8 +2721,8 @@ let spawnarenacloser = (loc, mode, type) => {
  for (let i = 0; i < 15; i++) {
         let angle = ((Math.PI * 2) / 15) * i;
         let o = new Entity({
-            x: room.width / 2 + (room.width / 1.5) * Math.cos(angle),
-            y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
+            x: room.width / 1.2 + (room.width / 1) * Math.cos(angle),
+            y: room.width / 1.2 + (room.width / 1) * Math.sin(angle),
         });
  
   o.define(type);
@@ -2781,10 +2781,32 @@ function restart3hour() {
         x: room.width * 2 + (room.width / 1.5) * Math.cos(angle),
        y: room.width * 2 + (room.width / 1.5) * Math.sin(angle),
 };
+      if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            1
+          )
+        );
+      });
     if (room.gameMode === "tdm")
-      (loc => {
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
-          locsp,
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
           -0,
           ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
@@ -2792,25 +2814,10 @@ function restart3hour() {
           )
         );
       });
-
-
-  if (room.gameMode === "tdm")
-      (loc => {
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
-          locsp,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-
-
-  if (room.gameMode === "tdm")
-      (loc => {
-        spawnarenacloser(
-          locsp,
+          loc,
           -0,
           ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
@@ -2845,10 +2852,32 @@ function closemode() {
        y: room.width / 2 + (room.width / 1.5) * Math.sin(angle),
 };
 
-  if (room.gameMode === "tdm")
-     (loc => {
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
-          locsp,
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
           -0,
           ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
@@ -2856,25 +2885,10 @@ function closemode() {
           )
         );
       });
-
-
-  if (room.gameMode === "tdm")
-      (loc => {
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
         spawnarenacloser(
-          locsp,
-          -0,
-          ran.choose(
-            [Class.arenacloser, Class.arenacloser, Class.arenacloser],
-            1
-          )
-        );
-      });
-
-
-  if (room.gameMode === "tdm")
-     (loc => {
-        spawnarenacloser(
-          locsp,
+          loc,
           -0,
           ran.choose(
             [Class.arenacloser, Class.arenacloser, Class.arenacloser],
@@ -3212,9 +3226,10 @@ const sockets = (() => {
     const protocol = require('./lib/fasttalk');
     let clients = [], players = [];
     return {
-        broadcast(message, color = ""){
-            ((socket) => {
-                socket.talk("m", message, color);
+ 
+        broadcast: message => {
+            clients.forEach(socket => {
+                socket.talk('m', message);
             });
         },
         connect: (() => {
