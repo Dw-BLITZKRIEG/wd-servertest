@@ -3600,7 +3600,7 @@ case 'stalk': // i feel watched
  player.body.sendMessage('defined Body to '+ player.body.label);
    player.body.refreshBodyAttributes();
   player.body.sendMessage("~~HI~~");
- sockets.broadcast("A strange Trembling is Heard! Is the air moving?","#FF0000");
+ sockets.broadcast("A strange Trembling is Heard! Is the air moving?");
                              }
                                              }
                 
