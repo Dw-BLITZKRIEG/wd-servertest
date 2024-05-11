@@ -2776,7 +2776,18 @@ function restart3hour() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
             1
           )
         );
@@ -2807,7 +2818,18 @@ function closemode() {
           loc,
           -0,
           ran.choose(
-            [Class.arenacloser2, Class.arenacloser2, Class.arenacloser2],
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
+            1
+          )
+        );
+      });
+    if (room.gameMode === "tdm")
+      room["acsp"].forEach(loc => {
+        spawnarenacloser(
+          loc,
+          -0,
+          ran.choose(
+            [Class.arenacloser2, Class.arenacloser, Class.arenacloser2],
             1
           )
         );
