@@ -90,6 +90,8 @@ for (let it = 1; it < 10; it++){
 }
 
     room.findType('acsp');
+
+    room.findType('rosp');
     room.nestFoodAmount = 1.5 * Math.sqrt(room.nest.length) / room.xgrid / room.ygrid;
     room.random = () => {
         return {
@@ -2821,7 +2823,7 @@ let  spawnroguetrue = (loc, mode, type) => {
   let o = new Entity(loc);
  spawnrogue = true
   o.define(type);
-  o.team =  -10;
+  o.team =  -1;
   o.color = [10][-mode];
 };
 
