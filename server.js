@@ -2814,6 +2814,17 @@ function closemode() {
   }
 }
 
+//Rouge Function
+function SpawnRogue(){
+   let o = new Entity(room["nest"]);
+ sockets.broadcast("Yo Something gonna happen lmfao get ready");
+  o.name = "fucknut"
+  o.define(Class.palisade);
+  o.team =  -10;
+  o.color = [];
+ };
+
+
 /*** SERVER SETUP ***/
 // Make a speed monitor
 var logs = (() => {
@@ -5263,6 +5274,7 @@ var maintainloop = (() => {
          break;            
           case 2:
             choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer], 3, "a", "nest"];
+  setTimeout(() => SpawnRogue(), 1e3);
         break; 
           case 3:
             choice = [[Class.elite_KILLER], 1, "a", "nest"];
