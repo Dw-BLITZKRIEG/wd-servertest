@@ -3961,6 +3961,11 @@ case 'stalk': // i feel watched
                             body.team = -player.team;
                             body.color = [10, 11, 12, 15][player.team - 1];
                         } break;
+                     
+   case "siege": {
+                            body.team = -1;
+                            body.color = [10];
+                        } break;
                         default: {
                             body.color = (c.RANDOM_COLORS) ? 
                                 ran.choose([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]) : 12; // red
