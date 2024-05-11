@@ -2815,22 +2815,35 @@ function closemode() {
 }
 
 //Rouge Function
-function SpawnRogue(){
-   let o = new Entity(room.random);
- sockets.broadcast("Yo Something gonna happen lmfao get ready");
 
-            sockets.broadcast(
-              "the core may be destroyed but not the elite destroyers!"
-            );
- setTimeout(() => {
-truespawn
-          }, 2500);
-           
-           }
+function SpawnRogue() {
+  
+
+  
+  loops++;
+  if (loops < 10) {
+  } else {
+    sockets.broadcast("Arena Closed:No players can join");
+ 
+
+    if (room.gameMode === "tdm")
+      room["nest"].forEach(loc => {
+        truespawn(
+          loc,
+          -0,
+          ran.choose(
+            [Class.elite_KILLER],
+            1
+          )
+        );
+      });
+  
+  }
+}
 let truespawn = (loc, type) => {
-        let o = new Entity(room.random);
+        let o = new Entity["norm"];
 
-  o.define(Class.palisade);
+  o.define(type);
   o.team =  -10;
   o.color = 36;
  };
@@ -5268,7 +5281,7 @@ var maintainloop = (() => {
             };
         })();
         return census => {
-            if (timer > 200 && ran.dice(50 - timer)) {
+            if (timer > 100 && ran.dice(50 - timer)) {
                 util.log('[SPAWN] Preparing to spawn...');
                 timer = 0;
                 let choice = [];
