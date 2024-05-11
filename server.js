@@ -2816,14 +2816,24 @@ function closemode() {
 
 //Rouge Function
 function SpawnRogue(){
-   let o = new Entity(room["nest"]);
+   let o = new Entity(room.random);
  sockets.broadcast("Yo Something gonna happen lmfao get ready");
-  o.name = "fucknut"
+
+            sockets.broadcast(
+              "the core may be destroyed but not the elite destroyers!"
+            );
+ setTimeout(() => {
+truespawn
+          }, 2500);
+           
+           }
+let truespawn = (loc, type) => {
+        let o = new Entity(room.random);
+
   o.define(Class.palisade);
   o.team =  -10;
-  o.color = [];
+  o.color = 36;
  };
-
 
 /*** SERVER SETUP ***/
 // Make a speed monitor
