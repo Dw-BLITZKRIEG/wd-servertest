@@ -2840,7 +2840,7 @@ function closemode() {
 
 //Rouge Function
 
-let spawnrogue = [];
+/***let spawnrogue = [];
 let  spawnroguetrue = (loc, mode, type) => {
   let o = new Entity(loc);
  spawnrogue = true
@@ -2870,7 +2870,7 @@ count++;
           )
         );
       });
-  }
+  } ***/
 
 /*** SERVER SETUP ***/
 // Make a speed monitor
@@ -3959,7 +3959,7 @@ case 'stalk': // i feel watched
                     switch (room.gameMode) {
                         case "tdm": {
                             body.team = -player.team;
-                            body.color = [10, 10, 12, 12][player.team - 1];
+                            body.color = [10, 11, 12, 15][player.team - 1];
                         } break;
                         default: {
                             body.color = (c.RANDOM_COLORS) ? 
@@ -5321,7 +5321,7 @@ var maintainloop = (() => {
          break;            
           case 2:
             choice = [[Class.elite_destroyer, Class.elite_gunner, Class.elite_sprayer], 3, "a", "nest"];
-  setTimeout(() => SpawnRogue(), 1e3);
+ // setTimeout(() => SpawnRogue(), 1e3);
         break; 
           case 3:
             choice = [[Class.elite_KILLER], 1, "a", "nest"];
