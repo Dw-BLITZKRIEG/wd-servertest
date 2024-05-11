@@ -2848,12 +2848,13 @@ let  spawnroguetrue = (loc, mode, type) => {
   o.team =  -1;
   o.color = [10][-mode];
 };
-
+let count = 0;
 var loops = 0;
 function SpawnRogue() {
  
     sockets.broadcast("someshitbouttahappen");
-    
+count++;
+    console.log(count + "Rogue boss have been spawned")
     if (room.gameMode === "tdm")
       
   
