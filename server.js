@@ -2816,37 +2816,36 @@ function closemode() {
 
 //Rouge Function
 
+let spawnrogue = [];
+let  spawnroguetrue = (loc, mode, type) => {
+  let o = new Entity(loc);
+ spawnrogue = true
+  o.define(type);
+  o.team =  -10;
+  o.color = [10][-mode];
+};
+
+var loops = 0;
 function SpawnRogue() {
-  
-
-  
-  loops++;
-  if (loops < 10) {
-  } else {
-    sockets.broadcast("Arena Closed:No players can join");
  
-
+    sockets.broadcast("someshitbouttahappen");
+    
     if (room.gameMode === "tdm")
-      room["nest"].forEach(loc => {
-        truespawn(
+      
+  
+      room["rosp"].forEach(loc => {
+        spawnroguetrue(
           loc,
           -0,
           ran.choose(
-            [Class.elite_KILLER],
+            [Class.palisade],
             1
+            
+ 
           )
         );
       });
-  
   }
-}
-let truespawn = (loc, type) => {
-        let o = new Entity["norm"];
-
-  o.define(type);
-  o.team =  -10;
-  o.color = 36;
- };
 
 /*** SERVER SETUP ***/
 // Make a speed monitor
