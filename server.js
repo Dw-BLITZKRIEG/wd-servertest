@@ -3964,7 +3964,7 @@ case 'stalk': // i feel watched
                      
    case "siege": {
                             body.team = -1;
-                            body.color = [10];
+                            body.color = 10;
                         } break;
                         default: {
                             body.color = (c.RANDOM_COLORS) ? 
