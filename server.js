@@ -6050,3 +6050,226 @@ setInterval(gameloop, room.cycleSpeed);
 setInterval(maintainloop, 200);
 setInterval(speedcheckloop, 1000);
 setInterval(poisonLoop, room.cycleSpeed * 7);
+
+
+// discord stuff lol
+function killall() {
+  sockets.broadcast("Killing all Entitys...");
+  for (let e of entities) if (e.type !== "food")
+     e.protection = false,
+    e.invuln = false,
+       e.kill();
+}
+
+var mlist = ['basic', 'twin', 'sniper', 'smasher', 'machinegun', 'grower', 'Makre I', 'Trapper']
+var blockedtanks = ['testbed']
+
+
+const Eris = require('eris');
+const bot = new Eris(process.env.bot_token);   
+var prefix = "%"
+var owner_id = "840682605425852446"
+var owner_id2 = "760128808094793738"
+
+bot.on('ready', () => {                             
+    console.log('Bot ready!');    
+    var canLogToDiscord = true
+});
+ 
+function unauth(level_required) { return '```patch\n- ERROR: INSUFFICIENT PERMISSION LEVEL\n- PERMISSION LEVEL ' + String(level_required) + ' IS REQUIRED```' }
+function arg_error(required, submitted) { return '```patch\n- ERROR: INSUFFICIENT ARGUMENTS SUPPLIED\n- ' + String(required) + ' ARGUMENTS ARE REQUIRED```' }
+
+function throwMe(errorString) {
+  throw errorString
+}
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+var mliststring = ''
+var mliststring2 = ''
+mlist.forEach(function(element) {
+  if (mliststring.length < 1970) {
+    mliststring += element += ', ';
+  } else {
+    mliststring2 += element += ', '
+  }
+});
+
+function parse(input) {
+  let out =  input.split(" "); 
+  return out
+}
+bot.on('messageCreate', (msg) => {
+  try {
+    if (msg.content.startsWith(prefix + "select ")) {
+      let sendError = true
+      let lookfor = msg.content.split(prefix + "select ").pop()
+      entities.forEach(function(element) {
+        if (typeof element.sendMessage == "function" && element.name == lookfor) {
+          sendError = false
+          bot.createMessage(msg.channel.id, String(element.name + '\nTank: ' + element.label + '\nId: ' + element.id + '\nAlpha: ' + element.alpha + '\nColor: ' + element.blend.amount + '\nMax Health: '  + element.health.max + '\nCurrent Health: '  + element.health.amount + '\nIs Invulnerable: ' + element.invuln + '\nScore: ' + element.photo.score + '\nLevel: ' + element.skill.level));
+        }
+      })
+      if (sendError) {
+        bot.createMessage(msg.channel.id, "Was unable to find an entity by that name");
+      }
+    }
+    if (msg.content == prefix + 'ping') {
+      bot.createMessage(msg.channel.id, 'Pong!\n' + "Has bosses: " + String(isRunningBossInstance) + "\nConnections amount: " + global.extPlayers + "\nRunning on glitch: " + process.env.ISONGLITCH + "\nDirectory: " + __dirname + "\nFile name: " + __filename);
+    }
+    if (msg.content == prefix + 'list') {
+      bot.createMessage(msg.channel.id, mliststring);
+      bot.createMessage(msg.channel.id, mliststring2);
+    }
+    if (msg.content.includes(prefix + 'help')) {
+        bot.createMessage(msg.channel.id, '***COMMANDS*** \n 2TDM Prefix: ' + '&'  + '\n\n Test-server Prefix: ?? ' + '\n\n "2TDM Dom Prefix: !! ' + '\n\n "Dev-event Prefix: . ' + '\n\n Mothership Prefix: < ' + '\n\n Siege Prefix: % ' + '\n(No space after prefix when running command) \n \n**ping**  -  Tells you if the server is running\n**kill** *<id>*  -  Kills a player (Authorization required)\n**broadcast** *<message>*  -  Broadcasts a message (Authorization required)\n**list**  -  Lists all tanks as their internal names\n**query** *<internalname>*  -  Returns some data about a tank (use list first to get tank names that this will accept)\n**select** *<name>*  -  Returns some data about in-game users\n**summon** *<type>* *<class>*  -  Summons a thing (Authorization required)\n**players**  -  List in-game players\n**stat** *<id> <path to stat> <new value>*  -  Modifies a stat (Authorization required)\n**define** *<id> <tank>*  -  Defines someone as a tank (Authorization required)');
+    }
+    if (msg.content.startsWith(prefix + 'kill ')) {
+      if (msg.author.id == owner_id || msg.author.id == owner_id2) {
+        let sendError = true
+        let lookfor = msg.content.split(prefix + "kill ").pop()
+        console.log(lookfor)
+        entities.forEach(function(element) {
+          if (element.id == lookfor) {
+            sendError = false
+            element.destroy()
+            bot.createMessage(msg.channel.id, "User killed.");
+          }
+        })
+        if (sendError) {
+          bot.createMessage(msg.channel.id, "Was unable to find an entity by the id: " + lookfor);
+        }
+      } else {
+        bot.createMessage(msg.channel.id, unauth(3));
+      }
+    }
+    if (msg.content.startsWith(prefix + 'eval')) {
+      if (msg.author.id == owner_id || msg.author.id == owner_id2) {
+        var command = msg.content.split(prefix + "eval ").pop()
+        console.log('new eval: ', command)
+        var output = eval(command)
+        bot.createMessage(msg.channel.id, "Evaluated. Output: " + output);
+      } else {
+        console.log("Unauthorized user", msg.author.username, "tried to eval")
+        bot.createMessage(msg.channel.id, unauth(3));
+      }
+    }
+    if (msg.content.startsWith(prefix + 'broadcast')) {
+        if (bt_ids.includes(msg.author.id) || msg.author.id == owner_id || msg.author.id == owner_id2) {
+        sockets.broadcast(msg.content.split(prefix + "broadcast").pop() + " - " + msg.author.username)
+        bot.createMessage(msg.channel.id, 'Message Broadcast!');
+      } else {
+        console.log("Unauthorized user", msg.author.username, "tried to broadcast")
+        bot.createMessage(msg.channel.id, unauth(2));
+      }
+    }
+
+    if (msg.content.startsWith(prefix + 'summon ')) {
+      if (msg.author.id == owner_id || msg.author.id == owner_id2) {
+        var spawnClass = msg.content.split(prefix + "summon ").pop().substr(0, 3)
+        console.log(msg.content.split(prefix + "summon ").pop().substr(0, 3))
+        var type = msg.content.split(" ").pop()
+        if (spawnClass == 'bot') {
+          botSpawn = type
+          bot.createMessage(msg.channel.id, "Next bot will be a " + type);
+        } else if (spawnClass == 'food') {
+          
+        } else {
+          bot.createMessage(msg.channel.id, "Was unable to complete request, unknown summon type: " + spawnClass);
+        }
+      } else {
+        console.log("Unauthorized user", msg.author.username, "tried to summon")
+        bot.createMessage(msg.channel.id, unauth(3));
+      }
+    }
+  if (msg.content == prefix + 'players') {
+    let output = '`'
+    entities.forEach(function(element) {
+    if (element.name != '') {
+        output += String(element.name + '  -  ' + element.id + '\n')
+    }}) 
+    output += '`'
+    bot.createMessage(msg.channel.id, output)}
+  if (msg.content.startsWith(prefix + 'stat ')) {
+    if ( msg.author.id == owner_id || msg.author.id == owner_id2) {
+    let s_command = parse(msg.content)
+    let s_lookForId = s_command[1]
+    let s_statpath = s_command[2]
+    let s_newvalueTemp = s_command.slice(3)
+    let s_newvalue = ''
+    s_newvalueTemp.forEach(function(element) {
+      s_newvalue += element + ' '
+    });
+    console.log("New stat command: ", s_lookForId, s_statpath, s_newvalue, "Sent by:", msg.author.username, '(' + msg.author.id + ')')
+    if (s_newvalue != '') { 
+    entities.forEach(function(element) {
+    if (element.id == s_lookForId && s_lookForId != "ALL") {
+      try {
+        eval('element' + s_statpath + ' = ' + s_newvalue)
+      } catch(err) {
+        eval('element' + s_statpath + ' = "' + s_newvalue + '"')
+      }
+      element.sendMessage("your stat " + s_statpath + ' has been changed to ' + s_newvalue)
+      bot.createMessage(msg.channel.id, "Value set to " + String(eval('element' + s_statpath)));
+    }})
+  if (s_lookForId == "ALL" && msg.author.id == owner_id) {
+    entities.forEach(function(element) {
+      try {
+        eval('element' + s_statpath + ' = ' + s_newvalue)
+      } catch(err) {
+        eval('element' + s_statpath + ' = "' + s_newvalue + '"')
+      }
+      element.sendMessage("your stat " + s_statpath + ' has been changed to ' + s_newvalue)
+    })
+  bot.createMessage(msg.channel.id, "Values set to " + s_newvalue);
+  } else {
+    if (s_lookForId == 'ALL') bot.createMessage(msg.channel.id, unauth(3))
+  }} else {
+    bot.createMessage(msg.channel.id, arg_error(3));
+  }
+  } else {
+    bot.createMessage(msg.channel.id, unauth(2));
+  }}
+  if (msg.content.startsWith(prefix + 'define ')) {
+    let printerror = true
+    let command = parse(msg.content)
+    let inputid = command[1]
+    let inputclass = command[2]
+    if (msg.author.id == owner_id || msg.author.id == owner_id2) {
+      if (!blockedtanks.includes(inputclass) || msg.author.id == owner_id) {
+        if (Class[inputclass] != undefined) {
+          entities.filter(r => r.id == inputid)[0].define(Class[inputclass])
+          printerror = false
+          bot.createMessage(msg.channel.id, 'Defined user as Class.' + inputclass);
+        } else {
+          bot.createMessage(msg.channel.id, inputclass + ' is not a valid tank');
+          printerror = false
+        }
+        if (printerror) {
+          bot.createMessage(msg.channel.id, "Couldn't find any users by the id: " + inputid);
+        }
+      } else {
+        bot.createMessage(msg.channel.id, unauth(3));
+      }
+  } else {
+    console.log(msg.author.id, bt_ids, bt_ids.includes(msg.author.id))
+    bot.createMessage(msg.channel.id, unauth(2));
+  }}
+ } catch(err) { // log the error in chat
+  bot.createMessage(msg.channel.id, '```patch\n- AN EXCEPTION WAS RAISED: ' + String(err) + '\n```');
+}});
+ 
+bot.editStatus('online', {
+  name: prefix + 'help for commands!',
+  type: 0
+});
+
+bot.connect();
+  
