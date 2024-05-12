@@ -6068,8 +6068,8 @@ var blockedtanks = ['testbed']
 const Eris = require('eris');
 const bot = new Eris(process.env.bot_token);   
 var prefix = "%"
-var owner_id = "840682605425852446"
-var owner_id2 = "760128808094793738"
+var owner_id = "993585214020395088"
+var owner_id2 = "993585214020395088"
 
 bot.on('ready', () => {                             
     console.log('Bot ready!');    
